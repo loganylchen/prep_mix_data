@@ -8,7 +8,7 @@ threads:
   f5c: 10
 
 test_times: 3
-depth:
+depths:
   - 20
   - 30
   - 50

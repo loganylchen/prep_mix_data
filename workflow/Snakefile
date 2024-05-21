@@ -31,7 +31,8 @@ include: "rules/prep_merge_raw_data.smk"
 
 rule all:
     input:
-        'results/merged.bam',
-        'results/merged.fastq.gz',
-        'results/merged.blow5.idx',
+        get_final_output()
+        # 'results/merged.bam',
+        # 'results/merged.fastq.gz',
+        # 'results/merged.blow5.idx',
 
