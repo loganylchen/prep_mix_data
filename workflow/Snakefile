@@ -7,7 +7,9 @@ min_version("6.4.1")
 
 wildcard_constraints:
     sample="[\da-zA-Z]+",
-    replicates="[\d]+"
+    replicate="[\d]+",
+    ratio="[01]+\.*[0-9]*",
+    depth="[\d]+",
 
 ##### setup report #####
 configfile: "config/config.yaml"

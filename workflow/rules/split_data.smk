@@ -5,14 +5,8 @@ rule select_reads:
         native_bam = 'data/native.bam',
         native_bai = 'data/native.bam.bai',
     output:
-        outdir=directory('results/splited_data/'),
-        tag = 'results/splited_data.tag'
-        # read_name_files = expand('results/splited_data/{depth}_{ratio}_{replicate}/{condition}_reads.txt',
-        #     depth=depths, ratio=ratios, replicate=replicates, condition=['control','native']),
-    params:
-        depths = depths,
-        ratios = ratios,
-        replicates = replicates,
+        control_read_file = 'results/splited_data/{depth}/{ratio}_{replicate}/control_reads.txt',
+        native_read_file = 'results/splited_data/{depth}/{ratio}_{replicate}/native_reads.txt',
     conda:
         '../envs/pysam.yaml'
     script:
@@ -20,3 +14,6 @@ rule select_reads:
 
 # rule select_blow5:
 #     input:
+#         tag = 'results/splited_data.tag'
+#     output:
+#         tag = 'results/splited_data.tag'
