@@ -21,6 +21,8 @@ def get_final_output():
             depth=depths, ratio=ratios, replicate=replicates, condition=['control','native'])
     final_output += expand('results/splited_data/{depth}/{ratio}/data/control_{replicate}/blow5/nanopore.blow5',
             depth=depths, ratio=ratios, replicate=replicates)
+    final_output += expand('results/splited_data/{depth}/{ratio}/data/control_{replicate}/fastq/pass.fq.gz',
+            depth=depths, ratio=ratios, replicate=replicates)
     # final_output = ['results/splited_data.tag']
     return final_output
 

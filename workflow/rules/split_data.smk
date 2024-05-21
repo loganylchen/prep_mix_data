@@ -30,3 +30,17 @@ rule select_blow5:
         "mkdir -p {params.control_blow5_dir} {params.native_blow5_dir} && "
         "slow5tools get -t {threads} -o {output.control_blow5} {input.merge_blow5} --list {input.control_read_file} &&"
         "slow5tools get -t {threads} -o {output.native_blow5} {input.merge_blow5} --list {input.native_read_file}"
+
+rule generate_split_fastq:
+    input:
+        fastq='results/merged.fastq.gz',
+        control_read_file='results/splited_data/{depth}/{ratio}_{replicate}/control_reads.txt',
+        native_read_file='results/splited_data/{depth}/{ratio}_{replicate}/native_reads.txt',
+    output:
+        control_fastq='results/splited_data/{depth}/{ratio}/data/control_{replicate}/fastq/pass.fq.gz',
+        native_fastq='results/splited_data/{depth}/{ratio}/data/native_{replicate}/fastq/pass.fq.gz',
+    conda:
+        "../envs/seqtk.yaml"
+    shell:
+        "seqtk subseq {input.fastq} {input.control_read_file} | gzip -c > {output.control_fastq} && "
+        "seqtk subseq {input.fastq} {input.native_read_file} | gzip -c > {output.native_fastq}  "
