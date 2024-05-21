@@ -33,5 +33,5 @@ rule all:
     input:
         'results/merged.bam',
         'results/merged.fastq.gz',
-        'results/merged.blow5.index',
+        'results/merged.blow5.idx',
 
