@@ -23,7 +23,7 @@ container: "docker://condaforge/mambaforge:22.11.1-4"
 
 include: "rules/common.smk"
 include: "rules/prep_merge_raw_data.smk"
-# include: "rules/toblow5.smk"
+include: "rules/split_data.smk"
 
 
 ##### target rules #####
