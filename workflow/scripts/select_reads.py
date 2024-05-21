@@ -47,7 +47,7 @@ def extract_reads(control_bam_file, native_bam_file):
     return reads_dict
 
 
-os.makedirs(os.path.dirname(snakemake.input.control_read_file), exist_ok=True)
+os.makedirs(os.path.dirname(snakemake.output.control_read_file), exist_ok=True)
 
 reads_dict = extract_reads(control_bam, native_bam)
 
