@@ -21,7 +21,9 @@ iter_n = range(test_times)
 test_depth = [int(i) for i in config['depth']]
 
 
-def get_output_list_for_one_sample(sample):
+def get_output_list_for_one_sample():
+    [f'results/depth_{depth}/data/control.{i}/fastq/pass.fq.gz' for depth in test_depth for i in iter_n]
+
     return [
         # f"data/{sample}/fastq/pass.fq.gz",
         # f"data/{sample}/blow5/nanopore.blow5",
