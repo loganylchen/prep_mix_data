@@ -7,6 +7,8 @@ rule merge_bam:
     output:
         bam='results/merged.bam',
         bai='results/merged.bam.bai',
+    conda:
+        '../envs/samtools.yaml'
     threads: config['threads']['samtools']
     shell:
         'samtools merge -o {output.bam}.tmp -@ {threads} {input.control_bam} {input.native_bam} && '
@@ -21,6 +23,8 @@ rule merge_blow5:
     output:
         blow5='results/merged.blow5',
     threads: config['threads']['slow5tools']
+    conda:
+        '../envs/slow5tools.yaml'
     shell:
         'slow5tools merge -o {output.blow5} {input.control_blow5} {input.native_blow5}'
 
@@ -30,5 +34,7 @@ rule merge_fastq:
         native_fastq = 'data/native.fastq.gz',
     output:
         fastq='results/merged.fastq.gz',
+    conda:
+        '../envs/samtools.yaml'
     shell:
         'zcat {input.control_fastq} {input.native_fastq} > {output.fastq}'
