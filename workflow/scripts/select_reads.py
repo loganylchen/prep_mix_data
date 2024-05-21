@@ -46,13 +46,13 @@ def extract_reads(control_bam_file, native_bam_file):
 
     return reads_dict
 
-outdir = snakemake.output.outdir
-os.makedirs(os.path.join(outdir,depth,f'{ratio}_{replicate}'), exist_ok=True)
+
+os.makedirs(os.path.dirname(snakemake.input.control_read_file), exist_ok=True)
 
 reads_dict = extract_reads(control_bam, native_bam)
 
-with open(os.path.join(outdir,depth,f'{ratio}_{replicate}','control_reads.txt'),'w') as control_reads_file:
+with open(snakemake.input.control_read_file,'w') as control_reads_file:
     control_reads_file.write('\n'.join(list(set(reads_dict['control']))))
-with open(os.path.join(outdir,depth,f'{ratio}_{replicate}','native_reads.txt'),'w') as native_reads_file:
+with open(snakemake.input.native_read_file,'w') as native_reads_file:
     native_reads_file.write('\n'.join(list(set(reads_dict['native']))))
 
