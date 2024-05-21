@@ -54,4 +54,5 @@ for key in reads_dict:
         control_reads_file.write('\n'.join(list(set(reads_dict[key]['control']))))
     with open(os.path.join(outdir,key,'native_reads.txt'),'w') as native_reads_file:
         native_reads_file.write('\n'.join(list(set(reads_dict[key]['native']))))
-
+with open(snakemake.output.tag,'w') as out:
+    out.write('Done')
