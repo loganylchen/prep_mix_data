@@ -38,3 +38,14 @@ rule merge_fastq:
         '../envs/samtools.yaml'
     shell:
         'zcat {input.control_fastq} {input.native_fastq} > {output.fastq}'
+
+rule blow5_index:
+    input:
+        blow5='results/merged.blow5',
+    output:
+        blow5_index='results/merged.blow5.idx',
+    conda:
+        "../envs/slow5tools.yaml"
+    threads: config['threads']['slow5tools']
+    shell:
+        "slow5tools index {input.blow5}"

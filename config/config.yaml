@@ -4,6 +4,8 @@ samples: config/samples.tsv
 
 threads:
   samtools: 10
+  slow5tools: 10
+  f5c: 10
 
 test_times: 3
 depth:
