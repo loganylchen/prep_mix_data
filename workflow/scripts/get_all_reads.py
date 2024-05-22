@@ -21,7 +21,7 @@ def get_all_reads_from_fastq(fastq_file):
     print(f'{len(reads)} reads in {fastq_file}')
     return reads
 
-log = open(snakemake.log, "w")
+log = open(snakemake.log[0], "w")
 sys.stderr = log
 sys.stdout = log
 
