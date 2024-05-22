@@ -2,7 +2,7 @@ import pyslow5
 import os
 import sys
 
-log = open(snakemake.log[0], "w")
+log = open(snakemake.log, "w")
 sys.stderr = log
 sys.stdout = log
 

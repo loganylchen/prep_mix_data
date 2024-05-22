@@ -61,7 +61,7 @@ rule get_all_reads:
     output:
         all_reads='results/all_reads.txt',
     log:
-        'logs/get_all_reads.log',
+        'logs/get_all_reads.log'
     conda:
         "../envs/python.yaml"
     script:
