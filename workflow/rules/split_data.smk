@@ -24,6 +24,8 @@ rule select_blow5:
     params:
         control_blow5_dir='results/splited_data/{depth}/{ratio}/data/control_{replicate}/blow5/',
         native_blow5_dir='results/splited_data/{depth}/{ratio}/data/native_{replicate}/blow5/'
+    log:
+        'logs/select_blow5_{depth}_{ratio}_{replicate}.log'
     threads: config['threads']['select_blow5']
     conda:
         "../envs/python.yaml"
