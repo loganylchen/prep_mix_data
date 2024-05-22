@@ -64,5 +64,5 @@ rule get_all_reads:
         'logs/get_all_reads.log',
     conda:
         "../envs/python.yaml"
-    scripts:
+    script:
         "../scripts/get_all_reads.py"
