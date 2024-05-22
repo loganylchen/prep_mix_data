@@ -22,8 +22,8 @@ def get_all_reads_from_fastq(fastq_file):
 
 
 
-with open(snakemake.log, "w") as f:
-    sys.stderr = sys.stdout = f
+with open(snakemake.log[0], "w") as log:
+    sys.stderr = sys.stdout = log
     bam_reads = get_all_reads_from_bam(snakemake.input.bam)
     fastq_reads = get_all_reads_from_fastq(snakemake.input.fastq)
     blow5_reads = get_all_reads_from_blow5(snakemake.input.blow5)
