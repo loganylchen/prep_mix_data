@@ -24,13 +24,11 @@ rule select_blow5:
     params:
         control_blow5_dir='results/splited_data/{depth}/{ratio}/data/control_{replicate}/blow5/',
         native_blow5_dir='results/splited_data/{depth}/{ratio}/data/native_{replicate}/blow5/'
-    threads: config['threads']['slow5tools']
+    threads: config['threads']['select_blow5']
     conda:
-        "../envs/slow5tools.yaml"
-    shell:
-        "mkdir -p {params.control_blow5_dir} {params.native_blow5_dir} && "
-        "slow5tools get -t {threads} -o {output.control_blow5} {input.merge_blow5} --list {input.control_read_file} &&"
-        "slow5tools get -t {threads} -o {output.native_blow5} {input.merge_blow5} --list {input.native_read_file}"
+        "../envs/python.yaml"
+    script:
+        "../scripts/select_blow5.py"
 
 rule generate_split_fastq:
     input:

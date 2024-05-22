@@ -19,6 +19,7 @@ with open(all_reads_file, 'r') as f:
 
 def get_read_number(depth,ratio):
     return int(depth * ratio), int(depth * (1 - ratio)), depth
+
 def extract_reads(control_bam_file, native_bam_file):
     reads_dict= defaultdict(list)
     with pysam.AlignmentFile(control_bam_file, "rb") as control_bam, pysam.AlignmentFile(native_bam_file, "rb") as native_bam:

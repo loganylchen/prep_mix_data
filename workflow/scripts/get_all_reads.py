@@ -8,6 +8,7 @@ def get_all_reads_from_bam(bam_file):
         reads = {read.query_name for read in bam}
     print(f'{len(reads)} reads in {bam_file}')
     return reads
+
 def get_all_reads_from_blow5(blow5_file):
     slow5 = pyslow5.Open(blow5_file,'r')
     read_ids, num_reads = slow5.get_read_ids()
