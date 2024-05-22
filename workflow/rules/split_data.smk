@@ -4,6 +4,7 @@ rule select_reads:
         control_bai = 'data/control.bam.bai',
         native_bam = 'data/native.bam',
         native_bai = 'data/native.bam.bai',
+        all_reads='results/all_reads.txt',
     output:
         control_read_file = 'results/splited_data/{depth}/{ratio}_{replicate}/control_reads.txt',
         native_read_file = 'results/splited_data/{depth}/{ratio}_{replicate}/native_reads.txt',

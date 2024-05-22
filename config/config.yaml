@@ -1,7 +1,5 @@
 samples: config/samples.tsv
 
-
-
 threads:
   samtools: 10
   slow5tools: 10

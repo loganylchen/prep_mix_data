@@ -10,6 +10,11 @@ replicate = int(snakemake.wildcards.replicate)
 
 control_bam = snakemake.input.control_bam
 native_bam = snakemake.input.native_bam
+all_reads_file = snakemake.input.all_reads
+
+with open(all_reads_file, 'r') as f:
+    all_reads = [read.strip() for read in f]
+
 
 
 def get_read_number(depth,ratio):
@@ -19,8 +24,8 @@ def extract_reads(control_bam_file, native_bam_file):
     with pysam.AlignmentFile(control_bam_file, "rb") as control_bam, pysam.AlignmentFile(native_bam_file, "rb") as native_bam:
         transcripts = set(control_bam.references).intersection(set(native_bam.references))
         for transcript in transcripts:
-            control_reads = [read.query_name for read in control_bam.fetch(transcript)]
-            native_reads = [read.query_name for read in native_bam.fetch(transcript)]
+            control_reads = list({read.query_name for read in control_bam.fetch(transcript)}.intersection(all_reads))
+            native_reads = list({read.query_name for read in native_bam.fetch(transcript)}.intersection(all_reads))
 
             native_depth, control_in_native_depth, control_depth = get_read_number(depth, ratio)
 
