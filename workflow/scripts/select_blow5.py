@@ -37,8 +37,15 @@ def get_select_reads_from_blow5(merge_blow5,output,read_file,threads=threads):
                 continue
             else:
                 header[i] = header_original[i]
+    new_header = dict()
+    for i in header:
+        if header[i] is not None:
+            new_header[i] = header[i]
+
     print(header)
-    write_slow5.write_header(header,end_reason_labels=new_end_reason_labels)
+    print('-------------------')
+    print(new_header)
+    write_slow5.write_header(new_header,end_reason_labels=new_end_reason_labels)
     for read in selected_reads:
         if read is not None:
             record, aux = write_slow5.get_empty_record(aux=True)
