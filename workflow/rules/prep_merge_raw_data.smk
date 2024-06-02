@@ -49,3 +49,20 @@ rule blow5_index:
     threads: config['threads']['slow5tools']
     shell:
         "slow5tools index {input.blow5}"
+
+
+rule get_all_reads:
+    input:
+        blow5='results/merged.blow5',
+        blow5_index='results/merged.blow5.idx',
+        fastq='results/merged.fastq.gz',
+        bam='results/merged.bam',
+        bai='results/merged.bam.bai',
+    output:
+        all_reads='results/all_reads.txt',
+    log:
+        'logs/get_all_reads.log',
+    conda:
+        "../envs/python.yaml"
+    script:
+        "../scripts/get_all_reads.py"
