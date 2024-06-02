@@ -26,7 +26,8 @@ def get_select_reads_from_blow5(merge_blow5,output,read_file,threads=threads):
 
     header_original = slow5.get_all_headers()
     header, end_reason_labels = slow5.get_empty_header(aux=True)
-
+    print(header)
+    print('-------------------')
     new_end_reason_labels = ['unknown', 'partial', 'mux_change', 'unblock_mux_change',
                              'data_service_unblock_mux_change', 'signal_positive', 'signal_negative']
 
@@ -36,6 +37,7 @@ def get_select_reads_from_blow5(merge_blow5,output,read_file,threads=threads):
                 continue
             else:
                 header[i] = header_original[i]
+    print(header)
     write_slow5.write_header(header,end_reason_labels=new_end_reason_labels)
     for read in selected_reads:
         if read is not None:
