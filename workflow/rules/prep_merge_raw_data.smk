@@ -37,7 +37,7 @@ rule merge_fastq:
     conda:
         '../envs/samtools.yaml'
     shell:
-        'zcat {input.control_fastq} {input.native_fastq} > {output.fastq}'
+        'zcat {input.control_fastq} {input.native_fastq} | gzip -c > {output.fastq}'
 
 rule blow5_index:
     input:
