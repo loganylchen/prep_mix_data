@@ -19,7 +19,7 @@ with open(all_reads_file, 'r') as f:
 
 
 def extract_reads(control_bam_file, native_bam_file):
-    reads_dict= dict
+    reads_dict= dict()
     with pysam.AlignmentFile(control_bam_file, "rb") as control_bam, pysam.AlignmentFile(native_bam_file, "rb") as native_bam:
         transcripts = set(control_bam.references).intersection(set(native_bam.references))
         for transcript in transcripts:
