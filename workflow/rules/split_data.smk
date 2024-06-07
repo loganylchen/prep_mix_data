@@ -13,6 +13,21 @@ rule select_reads:
     script:
         "../scripts/select_reads.py"
 
+
+rule label_reads:
+    input:
+        control_bam = 'data/control.bam',
+        control_bai = 'data/control.bam.bai',
+        native_bam = 'data/native.bam',
+        native_bai = 'data/native.bam.bai',
+        all_reads='results/all_reads.txt',
+    output:
+        read_type = 'results/splited_data/read_type.json',
+    conda:
+        '../envs/pysam.yaml'
+    script:
+        "../scripts/label_reads.py"
+
 rule select_blow5:
     input:
         control_read_file='results/splited_data/{depth}/{ratio}_{replicate}/control_reads.txt',
