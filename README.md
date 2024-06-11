@@ -1,9 +1,7 @@
-# Snakemake workflow: `<name>`
+# Snakemake workflow: `prep_mix_data`
 
 [![Snakemake](https://img.shields.io/badge/snakemake-≥6.3.0-brightgreen.svg)](https://snakemake.github.io)
-[![GitHub actions status](https://github.com/loganylchen/prep_mix_data/workflows/Tests/badge.svg?branch=main)](https://github.
-com/loganylchen/prep_mix_data/actions?
-query=branch%3Amain+workflow%3ATests)
+[![GitHub actions status](https://github.com/loganylchen/prep_mix_data/workflows/Tests/badge.svg?branch=main)](https://github.com/loganylchen/prep_mix_data/actions?query=branch%3Amain+workflow%3ATests)
 
 
 A Snakemake workflow for `prep_mix_data`
