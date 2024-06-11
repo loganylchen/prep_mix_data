@@ -1,16 +1,14 @@
 threads:
-  samtools: 10
-  slow5tools: 10
-  f5c: 10
-  select_blow5: 20
+  samtools: 2
+  slow5tools: 2
+  f5c: 2
+  select_blow5: 2
 
 test_times: 3
 depths:
+  - 10
   - 20
   - 30
-  - 50
-  - 100
-  - 150
 
 ratios:
   - 0.0
